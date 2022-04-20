@@ -1,0 +1,37 @@
+# reference
+# - https://github.com/amancevice/docker-superset/blob/master/examples/postgres/docker-compose.yml
+
+version: '3'
+services:
+  redis:
+    image: redis
+    restart: unless-stopped
+    volumes:
+      - redis:/data
+
+  postgres:
+    image: postgis/postgis:14-3.2-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: superset
+      POSTGRES_PASSWORD: superset
+      POSTGRES_USER: superset
+    volumes:
+      - postgres_new:/var/lib/postgresql/data
+
+  superset:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - redis
+    ports:
+      - "8088:8088"
+    volumes:
+      - ./superset_config.py:/app/pythonpath/superset_config.py
+
+volumes:
+  redis:
+  postgres_new:
+
