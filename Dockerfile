@@ -56,7 +56,8 @@ ENV BUILD_CMD=${NPM_BUILD_CMD}
 
 # NPM ci first, as to NOT invalidate previous steps except for when package.json changes
 RUN mkdir -p /app/superset-frontend
-RUN mkdir -p /app/superset/assets
+RUN mkdir -p /app/superset/assets && \
+  cp -r images/ /app/superset/assets/
   
 COPY ./superset/docker/frontend-mem-nag.sh /
 COPY ./superset/superset-frontend /app/superset-frontend
