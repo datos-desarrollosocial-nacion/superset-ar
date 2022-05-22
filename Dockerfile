@@ -56,13 +56,17 @@ ENV BUILD_CMD=${NPM_BUILD_CMD}
 
 # NPM ci first, as to NOT invalidate previous steps except for when package.json changes
 RUN mkdir -p /app/superset-frontend
-RUN mkdir -p /app/superset/assets && \
-  cp -r images/ /app/superset/assets/
   
 COPY ./superset/docker/frontend-mem-nag.sh /
 COPY ./superset/superset-frontend /app/superset-frontend
 COPY ./mapa-arg/countries.ts /app/superset-frontend/plugins/legacy-plugin-chart-country-map/src/countries.ts
 COPY ./mapa-arg/argentina.geojson /app/superset-frontend/plugins/legacy-plugin-chart-country-map/src/countries/argentina.geojson
+
+
+# custom images
+COPY ./images/ /app/superset-frontend/src/assets/images/
+
+
 RUN /frontend-mem-nag.sh \
   && cd /app/superset-frontend \
   && npm ci
@@ -71,7 +75,6 @@ RUN /frontend-mem-nag.sh \
 RUN cd /app/superset-frontend \
   && npm run ${BUILD_CMD} \
   && rm -rf node_modules
-
 
 ######################################################################
 # Final lean image...
@@ -156,7 +159,6 @@ RUN cd /app \
   && pip install --no-cache -r requirements/docker.txt \
   && pip install --no-cache -r requirements/requirements-local.txt || true
 USER superset
-
 
 ######################################################################
 # CI image...
