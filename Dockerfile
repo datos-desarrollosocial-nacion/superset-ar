@@ -65,9 +65,9 @@ COPY ./mapa-arg/argentina.geojson /app/superset-frontend/plugins/legacy-plugin-c
 
 # custom images
 COPY ./images/ /app/superset-frontend/src/assets/images/
-COPY ./locales/D3Formatting.ts superset/superset-frontend/packages/superset-ui-chart-controls/src/utils/ \
-  && ./locales/controls.jsx superset/superset-frontend/src/explore/ \
-  && ./locales/setupFormatters.ts superset/superset-frontend/src/setup/ 
+COPY ./locales/D3Formatting.ts /app/superset-frontend/packages/superset-ui-chart-controls/src/utils/ \
+  && ./locales/controls.jsx /app/superset-frontend/src/explore/ \
+  && ./locales/setupFormatters.ts /app/superset-frontend/src/setup/ 
 
 RUN /frontend-mem-nag.sh \
   && cd /app/superset-frontend \
