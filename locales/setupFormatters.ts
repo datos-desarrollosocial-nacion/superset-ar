@@ -73,7 +73,43 @@ export default function setupFormatters() {
           grouping: [3],
           currency: ['$', ''],
         },
+        formatString: '$,d',
+      }),
+    )
+    .registerValue(
+      'CURRENCY_AR_DECIMAL',
+      createD3NumberFormatter({
+        locale: {
+          decimal: ',',
+          thousands: '.',
+          grouping: [3],
+          currency: ['$', ''],
+        },
         formatString: '$,.2f',
+      }),
+    )
+    .registerValue(
+      'NUMBER_AR',
+      createD3NumberFormatter({
+        locale: {
+          decimal: ',',
+          thousands: '.',
+          grouping: [3],
+          currency: ['', ''],
+        },
+        formatString: ',d',
+      }),
+    )
+    .registerValue(
+      'NUMBER_AR_DECIMAL',
+      createD3NumberFormatter({
+        locale: {
+          decimal: ',',
+          thousands: '.',
+          grouping: [3],
+          currency: ['', ''],
+        },
+        formatString: ',.2f',
       }),
     )
     .registerValue(

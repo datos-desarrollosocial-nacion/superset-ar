@@ -88,7 +88,10 @@ export const D3_FORMAT_OPTIONS = [
   ['$,.2f', '$,.2f (12345.432 => $12,345.43)'],
   ['DURATION', 'Duration in ms (66000 => 1m 6s)'],
   ['DURATION_SUB', 'Duration in ms (100.40008 => 100ms 400µs 80ns)'],
-  ['CURRENCY_AR', '$,.2f, (12345.432 => +12.345,42)'],
+  ['CURRENCY_AR', '$.f, (12345.432 => +12.345)'],
+  ['CURRENCY_AR_DECIMAL', '$.,2f, (12345.432 => +12.345,42)'],
+  ['NUMBER_AR', '$.f, (12345.432 => +12.345)'],
+  ['NUMBER_AR_DECIMAL', '$.,2f, (12345.432 => +12.345,42)'],
 ];
 
 const ROW_LIMIT_OPTIONS = [10, 50, 100, 250, 500, 1000, 5000, 10000, 50000];
