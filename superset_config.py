@@ -33,4 +33,4 @@ CACHE_CONFIG = {
 SQLALCHEMY_DATABASE_URI = \
     'postgresql+psycopg2://superset:superset@postgres:5432/superset'
 SQLALCHEMY_TRACK_MODIFICATIONS = True
-SECRET_KEY = ''
+SECRET_KEY = 'loljustchangemeplz'
