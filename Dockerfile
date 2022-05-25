@@ -73,6 +73,8 @@ RUN /frontend-mem-nag.sh \
   && cd /app/superset-frontend \
   && npm ci
 
+COPY ./locales/defaultLocale.js /app/superset-frontend/node_modules/d3-time-format/src/defaultLocale.js
+
 # This seems to be the most expensive step
 RUN cd /app/superset-frontend \
   && npm run ${BUILD_CMD} \
