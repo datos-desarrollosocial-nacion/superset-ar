@@ -34,3 +34,5 @@ SQLALCHEMY_DATABASE_URI = \
     'postgresql+psycopg2://superset:superset@postgres:5432/superset'
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 SECRET_KEY = 'loljustchangemeplz'
+
+ENABLE_JAVASCRIPT_CONTROLS = True
