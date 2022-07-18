@@ -119,6 +119,10 @@ RUN cd /app \
   && pip install -e . \
   && flask fab babel-compile --target superset/translations
 
+# basic template mod
+COPY ./basic.html /app/superset/templates/superset/basic.html
+
+
 COPY ./superset/docker/run-server.sh /usr/bin/
 
 RUN chmod a+x /usr/bin/run-server.sh

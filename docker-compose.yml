@@ -19,7 +19,7 @@ services:
       - postgres_superset:/var/lib/postgresql/data
 
   superset:
-    image: baldosa/superset-ar
+    image: baldosa/superset-ar:1.5.1a
     restart: unless-stopped
     depends_on:
       - redis
